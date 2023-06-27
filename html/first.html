@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>HTML 기본문법</title>
+</head>
+
+<body>
+  <h1 style="border:1px solid; width: 500px; height: 100px; margin: 10px 20px 30px 40px; padding:10px 30px">오라클 클라우드 인프라</h1>
+  <h3>장점</h3>
+  <h6>제목6</h6>
+  <!-- style = "property:value;"" -->
+  <p style="width: 300px; border: 1px solid; background-color: lawngreen">
+    블로그에 OCI(Oracle Cloud Infrastructure) 프리티어에 대한 글을
+    쓰셨더라고요. 보통 오라클 클라우드는 개인 개발자들이 별로 관심을 안 가질
+    거 같은데, 오라클 클라우드를 써보신 이유가 있을까요? 정현호 : 모든
+    클라우드 서비스들이 ‘프리티어’라는 마케팅적인 요소들이 있거든요. 그런데
+    비교해보면 오라클 클라우드의 프리티어가 다른 프리티어 서비스보다 월등히
+    좋은 부분이 있어요. 다른 데서 제공하지 못하는 사양을 제공해주고 있기
+    때문에 다른 사람들도 이런 부분들을 좀 공감했으면 좋겠다라는 취지에서 일단
+    몇 가지 글들을 블로그에 남기고 있습니다. 월등히 좋은 부분? 그게 뭘까요?
+    정현호 : 무료로 제공되는 인스턴스가 기본적으로 두 개에서 많게는 세
+    개까지도 쓸 수 있고, 그 다음에 아웃바운드 트래픽이 10테라바이트까지
+    무료라는 점이 굉장히 좀 메리트가 있다고 생각을 합니다.
+  </p>
+
+  <!-- 목록 -->
+  <ol style="border: 2px solid; list-style-type: lower-alpha;">
+    <li>JAVA</li>
+    <li>SQL</li>
+    <li>HTML</li>
+  </ol>
+
+  <ul style="border: 2px solid; list-style-type: square;">
+    <li>JAVA</li>
+    <li>SQL</li>
+    <li>HTML</li>
+  </ul>
+
+  <p style="width: 400px; border: 1px dotted; background-color: beige">
+    다른 곳과 비교하면 얼마나 차이가 나는 건가요?
+
+    정현호 : 보통 기본적으로 하나의 인스턴스를 제공을 해주고 있고, 메모리는 650메가바이트에서 1기가바이트 정도를 제공합니다. 아웃바운드 트래픽의 경우 적은 곳은 1기가바이트 정도를 제공해줍니다. 보통 트래픽
+    초과로 인해 비용이 발생하는데, 오라클은 10테라바이트 아웃바운드 트래픽을 제공해 주고 있기 때문에 일단 과금적인 요소를 걱정할 필요가 없습니다.
+
+    아웃바운드 트래픽 10테라바이트라면 어느 정도의 방문자수를 커버할 수 있을까요?
+
+    정현호 : 제 블로그에 하루에 한 1000명 정도가 들어오는데요. 1000명 정도 들어왔을 때 한 달에 50기가바이트 이하로 들어가는 것 같아요. 그래서 프리티어로 충분합니다.
+  </p>
+
+
+  <!-- 표 tbody 생략하면 엔진에 의해 자동으로 만들어진다 -->
+  <table border="1" width="" height="">
+    <tbody>
+      <tr>
+        <td style="border: 1px dotted; width: 100px; height: 50px; margin: 10px;">A</td>
+        <td style="border: 1px solid;">B</td>
+      </tr>
+    </tbody>
+    
+    <tfoot>
+      <tr>
+        <td>foot1</td>
+        <td style="border: 1px dotted;">foot2</td>
+      </tr>
+    </tfoot>
+    
+    <thead>
+      <tr>
+        <th style="border: 1px solid;">셀1</th>
+        <th style="border: 1px solid;">셀2</th>
+      </tr>
+    </thead>
+  </table>
+
+  <p style="border: 1px solid;">
+    <img src="../images/common.jpg" alt="디아블로 이미지 파일">
+    <img src="C:/263\myFrontWEB\images\common.jpg " alt="오라클" style="width: 300px;">
+    <img src="C:/263\myFrontWEB\images\common.jpg " alt="디아블로" height="200px">
+    <img src="..\images\common.jpg" alt="상대경로 디아블로" width="300px">
+    <img src="https://cdn.gameinsight.co.kr/news/photo/202206/24471_62476_1243.png" alt="주소복사 디아블로" width="300px">
+    <img src="..\xx.jpg" alt="없는 이미지"> 
+  </p>
+    
+  <p> 
+    html 요소는 block요소와 inline요소로 나뉜다<br>
+    block 요소는 1줄을 모두 사용하는 구조(크기지정 가능, 상하마진가능),
+    inline 요소는 1줄에 다음요소와 이어지는 구조이다 (크기지정불가, 상하마진불가)
+    inline-block 요소는 1줄에 다음요소와 이어지는 구조(크기지정가능, 상하마진가능)
+    <hr>
+    block 요소의 종류로는 h1~h6, p, ul, ol, li, table, tr, div<br>
+    inline 요소의 종류로는 th, td, img, span<br>
+    inline-block 요소의 종류로는 img, th/td(마진영역이 없음)
+
+  </p>
+  <div style="margin: 10px;">DIV1</div>
+  <div style="border : 2px solid; width: 100px; margin: 20px;">DIV2</div>
+  <span style="margin: 30px; width: 100px; margin: 20px;">SPAN1</span>
+  <span style="margin: 40px;">SPAN2</span>
+  <div>DIV3</div>
+  <span>SPAN3</span>
+</body>
+
+</html>
