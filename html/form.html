@@ -1,59 +1,91 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>입력양식</title>
-    </head>
-    <body>
-        <div>
-            <form method="get" action="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query">
-                <input name="query">
-                <button>전송1</button>
-            </form>
-        </div>
-        <div>
-            <form action="https://localhost:8888/form">
-                <input type="text" name="t"
-                       maxlength="5"
-                       placeholder="아이디를 입력하세요"
-                       style="width: 100px;"
-                       required="required"><br>
-                <input type="password"
-                       name="p" 
-                       value="pdefalut"
-                       readonly
-                       >
-                       <!-- disabled="true" 비활성화되어 클릭조차 안됨--> 
-                       <br>
-                number:<input type="number" name="n" value="1"><br>
-                email:<input type="email" name="e" value="a@b.com"><br>
-                date: <input type="date" name="d" value="2023-12-01"><br>
-                range:<input type="range" name="ra" value="7" min="1" max="10"><br>
-                search:<input type="search" name="se"><br>
 
-                <input type="checkbox" checked name="c" value="j">JAVA&nbsp;&nbsp;&nbsp;
-                <input type="checkbox"         name="c" value="s">SQL&nbsp;&nbsp;&nbsp;
-                <input type="checkbox" checked name="c" value="h">HTML<br>
+<head>
+    <meta charset="UTF-8">
+    <title>입력양식</title>
+</head>
 
-                <input type="radio"         name="r" value="r1">ONE&nbsp;&nbsp;
-                <input type="radio" checked name="r" value="r2">TWO&nbsp;&nbsp;
-                <input type="radio"         name="r" value="r3">THREE<br>
+<body>
+    <div>
+        <form method="get" action="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8">
+            <input name="query">
+            <button>전송1</button>
+        </form>
+    </div>
+    <div>
+        <form action="http://localhost:8888/form"
+              id="f1"
+              autocomplete="off"
+        >
+            <label>
+                <span>아이디</span>
+                <input type="text" name="t" maxlength="5" placeholder="아이디를 입력하세요" style="width: 100px;" required><br>
+                <input type="password" name="p" value="pdefalut" readonly><br>
 
-                <input type="hidden" name="h" value="hdefault">
+            </label>
+            <label>
+                <span>number</span>
+                <input type="number" name="n" value="1" min="0" max="9" step="2">
+            </label>
+            <br>
+            <label for="efor">
+                email :
+            </label>
+            <input type="email" 
+                   name="e" value="a@b.com"
+                   id="efor"
+                   ><br>
+            date : <input type="date" name="d" value="2023-12-01" pattern="\d{4}-\d{2}\d{2}"><br>
+            range : <input type="range" name="ra" value="7" min="1" max="10"><br>
+            search : <input type="search" name="se"><br>
 
-                <select name="s">
-                    <option value="s1">ONE</option>
-                    <option value="s2">TWO</option>
-                    <option value="s3">THREE</option>
-                </select>
-                <textarea name="ta" 
-                          rows="5" 
-                          cols="50" 
-                          style="background-color: antiquewhite; border: 0px; resize: none;">
-                    여러줄입력란
-                </textarea>
-                <button>전송2</button>
-            </form>
-        </div>
-    </body>
+            <fieldset>
+                <legend>언어를 선택하세요</legend>
+                    <input type="checkbox" checked name="c" value="j">JAVA&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="c" value="s">SQL&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="c" value="h">HTML<br>                  
+            </fieldset>
+
+            <fieldset>
+                <legend>단일을 선택하세요</legend>
+            <input type="radio" name="r" value="r1">ONE&nbsp;&nbsp;
+            <input type="radio" checked name="rr" value="r2">TWO&nbsp;&nbsp;
+            <input type="radio" name="rrr" value="r3">THREE<br>
+            </fieldset>
+            <input type="hidden" name="h" value="hdefalut">
+
+            <select name="s">
+                <option>ONE</option>
+                <option selected>TWO</option>
+                <option>THREE</option>
+            </select>
+            <textarea name="ta" rows="5" cols="50"
+                style="background-color:blueviolet;border: 0px; resize: none;">여러줄 입력란</textarea>
+            <br>
+            <fieldset>
+            <button>전송2</button>
+            <Input type="submit" value="SUBMIT버튼">
+
+            <button type="button">일반버튼1</button>
+            <input type="button" value="일반버튼">
+
+            <button type="reset">RESET1</button>
+            <input type="reset" vlaue="RESET2">
+            </fieldset>
+        </form>
+        <button>일반버튼3</button>
+        <input name="t1" form="f1" placeholder="아이디2를 입력하세요">
+    </div>
+
+    <div>
+        <form action="http://localhost:8888/form"
+              method="post"
+            >
+            <input name="t">
+            <button>POST방식으로 전송</button>
+        </form>
+    </div>
+</body>
+
 </html>
