@@ -29,7 +29,7 @@
   </style>
 </head>
 
-<body>
+<body style="height: 700px;">
   <h1 style="width: 500px; height: 100px; margin: 10px 20px 30px 40px; padding:10px 30px">오라클 클라우드 인프라</h1>
   <h3>장점</h3>
   <h6>제목6</h6>
@@ -60,7 +60,7 @@
   </p>
 
   <!-- 목록 -->
-  <ol style="border: 2px solid; list-style-type: lower-alpha;">
+  <ol style="border: 2px solid; list-style-type: none; padding-left: 0px;">
     <li>JAVA</li>
     <li>SQL</li>
     <li>HTML</li>
@@ -72,33 +72,38 @@
     <li>HTML</li>
   </ul>
 
-  <!-- 표 tbody 생략하면 엔진에 의해 자동으로 만들어진다 -->
-  <table border="1" width="" height="">
+  <div style="background-color: yellow; height: 300px;">
+    <!-- 표 tbody 생략하면 엔진에 의해 자동으로 만들어진다 -->
+    <table style="border: 1px solid; border-collapse: collapse;
+                  width: 40%; 
+                  height: 50%;">
+                  <!-- table의 높이는 고정단위인 픽셀단위로는 지정할 수 있지만 퍼센트로 높이를 조절하려면 부모단위(body)에서부터 높이가 지정되어 있어야 함 -->
 
-    <tbody>
-      <tr>
-        <td style="width: 100px; height: 50px; margin: 10px;"
-            class="dotted1"
-        >A</td>
+  <tbody>
+    <tr>
+      <td style="width: 100px; height: 50px; margin: 10px;"
+          class="dotted1"
+      >A</td>
 
-        <td>B</td>
-      </tr>
-    </tbody>
-    
-    <tfoot>
-      <tr>
-        <td>foot1</td>
-        <td class="dotted1">foot2</td>
-      </tr>
-    </tfoot>
-    
-    <thead>
-      <tr>
-        <th class="dotted1">셀1</th>
-        <th class="dotted1">셀2</th>
-      </tr>
-    </thead>
-  </table>
+      <td>B</td>
+    </tr>
+  </tbody>
+  
+  <tfoot>
+    <tr>
+      <td>foot1</td>
+      <td class="dotted1">foot2</td>
+    </tr>
+  </tfoot>
+  
+  <thead>
+    <tr>
+      <th class="dotted1">셀1</th>
+      <th class="dotted1">셀2</th>
+    </tr>
+  </thead>
+</table>
+</div>
 
   <p style="border: 1px dashed;">
     <img src="../images/common.jpg" alt="디아블로 이미지 파일">
