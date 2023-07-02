@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=2.0">
         <title>회원가입</title>
         <link rel="stylesheet" href="../css/signup.css">
-
+        
     </head>
 
     <body>
@@ -16,7 +16,10 @@
                    placeholder="아이디를 입력하세요" autocomplete="off">
 
             <!-- <button class="dupchk"><a href="http://localhost:8888"></a>아이디 중복확인</button> -->
-            <button class="dupchk">아이디 중복확인</button>
+            <!-- 백에서 아이디 중복 비교하는 로직 추가 필요 -->
+            <button type="button" id="dupchk_btn" 
+                    onclick="document.getElementById('signup_btn').style.display='block'">아이디 중복확인!
+            </button>
             
             <label for="pwd">비밀번호:</label>
             <input name="pwd"
@@ -31,9 +34,10 @@
             <label for="name">이름:</label>
             <input name="name" type="text" autocomplete="off">
 
-            <button class="signup">가입</button>
+            <button id="signup_btn">가입</button>
 
         </form>
+
 
     </body>
 </html>

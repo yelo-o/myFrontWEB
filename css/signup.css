@@ -8,12 +8,12 @@ form.signup>input[name=id], form.signup>input[name=id], form.signup>input[name=p
     display: block;
 }
 
-button.dupchk{
+button#dupchk_btn{
     width: 50%;
     background-color: aquamarine;
     display: block;
 }
 
-button.signup {
+button#signup_btn {
     display: none;
 }
