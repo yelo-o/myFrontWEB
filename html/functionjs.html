@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function plus(a, b) {
+                return a+b;
+            }
+
+            var c = plus(2,3)
+            console.log(c) //5
+            
+            var c = plus('a', 'b')
+            console.log(c) //ab
+            
+            var c = plus(2);
+            console.log(c) //NaN
+            
+            var c = plus(2, 3, 4);
+            console.log(c) //5
+
+            function greeting(lang){
+                if(typeof(lang) == 'undefined'){
+                    lang = 'kr';
+                }
+                if(lang=='kr'){
+                    console.log('안녕하세요')
+                }else if(lang=='en'){
+                    console.log('Hello')
+                }
+            }
+
+            greeting('kr');
+            greeting('en');
+            greeting();
+            var d = greeting('kr');
+            console.log(d)
+
+            //이름없는 함수
+            var f1 = function(){
+                console.log('이름없는 함수')
+            }
+
+            f1();
+
+            var f2 = f1;
+            f2();
+
+            var f3 = function(a){
+                console.log(a)
+            }
+
+            f3(2);
+            f3(true);
+            f3(f1);
+            
+            var f4 = function(a){
+                a();
+            }
+            f4(f1);
+            f4( function(){
+                console.log('콜백함수');
+            })
+
+            var f5 = function(a,b,c){
+                console.log(a(b,c));
+            }
+
+            f5(plus, 2, 3)
+            
+            f5(function(a, b){
+                return a-b
+            }, 2, 3);
+
+            f5((a,b) =>{
+                return a*b;
+            }, 2,3)
+
+        </script>
+    </head>
+</html>

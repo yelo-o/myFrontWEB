@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        /* 산술연산자 +,-,*,/,% */
+        console.log(1/3, 1+3-1/3) //0.3333333... 3.6666666...
+        var a;
+        console.log(a*3) //NaN (Not a Number)
+        a = 0
+        console.log(3/a, 3/a+1) //Infinity, Infinity
+
+        /* 대입연산자 =, +=, *=, /=, %= */
+
+        /* 비교연산자 ==, ===, !=, !== */
+        var a = 7;
+        var b = '7';
+        console.log( a==b, a===b) //true false(자료형까지 비교)
+
+        /* 논리연산자 &&, ||, ! */
+        console.log(a%2==1 && a>5) //true
+        
+        /* 삼항연산자 ? : */
+        console.log(a%2==1? '홀수':'짝수') //홀수
+        
+        /* 문자열 결합연산자  */
+        a = 7
+        b = '7'
+        c = 3
+        d = true
+        //숫자+문자
+        console.log(a+c+b) //107
+        //문자+숫자
+        console.log(b+a+c) //773
+        //숫자+boolean : true는 1, false는 0으로 변환
+        console.log(a+d) //7+1 => 8
+        //문자+boolean
+        console.log(b+d) //'7'+true => '7true'
+        //boolean+문자
+        console.log(d+b) //true '7' => 'true7'
+        //숫자-문자
+        console.log(a-c-b) //7-3-'7' => -3
+        //문자-숫자
+        console.log(b-a-c) //'7'-7-3 => -3
+        //문자-boolean
+        console.log(b-d) //'7'-true => 7-1 =6
+
+    </script>
+</head>
+
+
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            var a; //window객체 영역에 변수 선언
+            console.log(a, window.a);
+
+            let aa; //window객체 영역에 변수 선언
+            console.log(aa);
+
+            // let aa = 1; //Uncaught SyntaxError: Identifier 'aa'
+
+            alert('경고')
+            window.alert('경고')
+
+            for(var i=0; i<5; i++){} //window객체 영역에 변수 선언
+            console.log(i, window.i);
+
+            for(let ii=0; ii<5; ii++){} //for영역에 변수 선언
+            console.log(ii, window.ii); //Uncaught ReferenceError: ii is not defined
+
+            var f1 = function() {
+                var fv = 1; //f1 함수영역에 변수 선언 1
+                console.log(fv); //1
+
+                c='hello'; //var없이 window 객체 영역에 변수선언
+                console.log('함수내부에서 c값 : ', c)
+
+                let fvv = 1;
+                console.log(fvv); //1
+            }
+            f1();
+            //console.log(fv,fvv);
+            b = true; //var없이 변수선언
+            console.log(fv, window.fv); //window 객체영역에 변수선언
+            console.log('함수외부에서 c값 :' +c, window.c) //hello
+
+            //this : 현재 사용중인 객체
+            var f2 = function() {
+                console.log(this) //Window
+            }
+            f2();
+            var f3 = ()=>{
+                console.log(this)
+            }
+            f3(); //Window
+
+            var f4 = function(a) {
+                a();
+            }
+            f4(f2); //Window
+            f4(f3); //Window
+            
+            let f5 = function(a) {
+                a();
+            }
+            f5(function(){console.log(this)});
+            f5(()=>{
+                console.log(this)
+            })
+
+
+        </script>
+    </head>
+</html>

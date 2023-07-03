@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            var arr = [3,4,2,10,6,1,7,8,9];
+            //selection sort로 ascending sort
+            for(var i=0; i<arr.length-1; i++){
+                var indexMin = i;
+                for(var j=i+1; j<arr.length; j++){
+                    if(arr[indexMin]>arr[j]){
+                        indexMin=j;
+                    }
+                }
+                //swap
+                tmp = arr[indexMin]
+                arr[indexMin] = arr[i]
+                arr[i] = tmp
+            }
+            //출력
+            for(var i=0;i<arr.length;i++){
+                console.log(arr[i]);
+            }
+
+            var num1, num2, num3, num4;
+            num1 = arr[0];
+            num2 = arr[1];
+            num3 = arr[2];
+            num4 = arr[3];
+
+            //destructing
+            //var [num1, num2, num3, num4, num5, num6, num7, num8, num9, num10] = arr;
+            var [num1, num2, num3, num4] = arr;
+            var [ , num2, num3, , , , , num8, num9, num10] = arr;
+            console.log(num2, num3, num4, num8, num9);
+
+            var arr2 = [101, 102, 103]
+            console.log(arr + arr2)
+
+            var arr3 = arr + arr2 //문자열로 변환 결합 ([1], [,], [2], [,], .... )
+
+            for(var i=0; i<arr3.length; i++){
+                console.log(arr3[i])
+            }
+            console.log(arr3 , arr.length, arr2.length, arr3.length) //arr3.length 가 29로 나옴!
+
+            var arr4 = [];
+            for(var i=0; i<arr.length;i++){
+                // arr4[i] = arr[i];
+                arr4.push(arr[i]);
+            }
+            for(var i=0; i<arr.length;i++){
+                // arr4[arr.length+i] = arr2[i];
+                arr4.push(arr2[i]);
+            }
+            console.log(arr4)
+            
+            //spread
+            var arr5 = [...arr, ...arr2]
+            console.log(arr5)
+
+            //rest
+            var [arr51, arr52, ...rest] = arr5;
+            console.log(arr51, arr52, rest); //1, 2, [3,4,6,7,8,9,10, 101, 102, 103]
+
+
+            //배열전용함수 forEach()
+            arr5.forEach((value, index, arr)=>{
+                console.log(value,index, arr.length);
+            })
+
+        </script>
+    </head>
+</html>
