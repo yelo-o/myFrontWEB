@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
-    <title>계산기</title>
+    <title>이벤트학습</title>
     <script src="../js/eventjs.js"></script>
+    <link rel="stylesheet" href="../css/eventjs.css">
 </head>
 
 <body>
@@ -36,6 +37,40 @@
             <input type="checkbox"><span>TWO</span>
             <input type="checkbox"><span>THREE</span>
         </fieldset>
+    </div>
+
+    <div class="car">
+        <select class="type">
+            <option value="">선택하세요</option>
+            <option value="sedan">승용</option>
+            <option value="suv">SUV</option>
+            <option value="truck">트럭</option>
+        </select>
+        <select class="type2">
+            <option>선택하세요</option>
+            <option>쏘나타</option>
+            <option>더 뉴 아반테</option>
+            <option>디 올 뉴 그랜저</option>
+            <option>디 올 뉴 그랜저Hybrid</option>
+        </select>
+    </div>
+
+    <div class="keyboard">
+        <input type="text" placeholder="입력한 문자를 대문자로 바꾸기">
+    </div>
+
+    <div class="form">
+        <!-- 현재는 백엔드 서버가 없기 때문에 404오류가 뜰 것으로 예상 -->
+        <form action="http://localhost:8888/form"> 
+            <input type="text" name="t" value="t1">
+            <input type="password" name="p" value="p1">
+            <button>전송</button> <!-- input type="submit" -->
+        </form>
+
+    </div>
+    <div class="link">
+        <!-- a태그 객체에는 click 이벤트 처리가 내장되어 있음 : default event handler-->
+        <a href="http://www.google.com">구글</a>
     </div>
 
 </body>

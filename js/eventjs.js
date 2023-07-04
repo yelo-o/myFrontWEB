@@ -72,5 +72,126 @@ window.addEventListener('load', function() { //window에서 load 이벤트가 �
         })
     })
     //---all checkbox객체에서 클릭되었을 때 할 일 END---
+    
+    //---차량 대분류를 선택했을 때 할일 START---
+    let carTypeObj =
+        document.querySelector('div.car>select.type'); //대분류
+
+    let carType2Obj =
+        document.querySelector('div.car>select.type2'); //중분류
+    
+    carTypeObj.addEventListener('click',() =>{
+        console.log('clicked')
+    })
+
+    carTypeObj.addEventListener('change',(e) =>{
+        console.log(e.target.value, 'changed')
+        switch(e.target.value) {
+            case 'sedan':
+                // let type1 = ['쏘나타', '더 뉴 아반테', '디 올 뉴 그랜저', '디 올 뉴 그랜저Hybrid']
+                let type1 = [
+                    {name: '쏘나타', id : 'sonata'},
+                    {name:'더 뉴 아반테', id: 'avante'},
+                    {name:'디 올 뉴 그랜저', id: 'grandure'},
+                    {name:'디 올 뉴 그랜저Hybrid', id: 'hybrid'}
+                ]
+                carType2Obj.innerHTML = '<option>선택하세요</option>'
+                carType2Obj.innerHTML += '<option value="'+ type1[0].id +'">' + type1[0].name + '</option>'
+                carType2Obj.innerHTML += '<option value="'+ type1[1].id +'">' + type1[1].name + '</option>'
+                carType2Obj.innerHTML += `<option value="${type1[2].id}">${type1[2].name}</option>`
+                carType2Obj.innerHTML += `<option value="${type1[3].id}">${type1[3].name}</option>`
+                carType2Obj.style.display = 'inline-block'
+                break;
+            case 'suv':
+                // let type2 = ['팰리세이드', '베뉴', '코나']
+                let type2 = [
+                    {name: '팰리세이드', id : 'palisade'},
+                    {name:'베뉴', id: 'venue'},
+                    {name:'코나', id: 'kona'}
+                ]
+                carType2Obj.innerHTML = '<option>선택하세요</option>'
+                for (let i=0; i<type2.length;i++){
+                    carType2Obj.innerHTML += `<option value="${type2[i].id}">${type2[i].name}</option>`
+                }
+                // carType2Obj.innerHTML += '<option>' + type2[0] + '</option>'
+                // carType2Obj.innerHTML += '<option>' + type2[1] + '</option>'
+                // carType2Obj.innerHTML += '<option>' + type2[2] + '</option>'
+                carType2Obj.style.display = 'inline-block'
+                break;
+            case 'truck':
+                // let type3 = ['마이티', '더 뉴 파비스', '뉴파워트럭'];
+                let type3 = [
+                    {name: '마이티', id : 'mighty'},
+                    {name:'더 뉴 파비스', id: 'pavise'},
+                    {name:'뉴파워트럭', id: 'powertruck'}
+                ]
+                carType2Obj.innerHTML = '<option>선택하세요</option>'
+                for (let i=0; i<type3.length;i++){
+                    carType2Obj.innerHTML += `<option value="${type3[i].id}">${type3[i].name}</option>`
+                }
+                // carType2Obj.innerHTML += '<option>' + type3[0] + '</option>'
+                // carType2Obj.innerHTML += '<option>' + type3[1] + '</option>'
+                // carType2Obj.innerHTML += '<option>' + type3[2] + '</option>'
+                carType2Obj.style.display = 'inline-block'
+            break;
+            default: //중분류의 display => none
+            carType2Obj.style.display = 'none'
+
+        }
+        
+    })
+    //---차량 대분류를 선택했을 때 할일 END---
+    
+    //--입력란에 키보드입력할 때 할 일 START--
+    //DOMkeyboard입력요소 객체 찾기
+    const txtObj = 
+    document.querySelector('div.keyboard>input[type=text]')
+    txtObj.addEventListener('keyup', (e)=>{
+        console.log(e.key, e.target.value)
+        if(e.key == 'Enter') {
+            this.alert('Enter를 입력했습니다')
+        }else {
+            e.target.value = e.target.value.toUpperCase()
+        }
+        
+    })
+    //--입력란에 키보드입력할 때 할 일 END--
+
+    //--전송버튼 클릭할 때 할 일 START--
+    const btsubmitObj =
+        document.querySelector('div.form>form>button')
+
+    //TODO : 콘솔에 '전송버튼이 클릭되었습니다' 출력
+    btsubmitObj.addEventListener('click', ()=>{
+        alert("전송버튼이 클릭되었습니다")
+    })
+    //--전송버튼 클릭할 때 할 일 END--
+
+    //--폼의 submit이벤트 발생할떄 할 일 START--
+    //전송 시에 하고 싶은 일은 form의 submit 이벤트에 처리는 것 권장
+    const formObj =
+    document.querySelector('div.form>form')
+
+    formObj.addEventListener('submit', (e) =>{
+        alert("submit이벤트가 발생했습니다")
+        e.preventDefault()
+    })
+
+    //--폼의 submit이벤트 발생할떄 할 일 END--
+
+    //--a객체의 click이벤트 발생할 때 할 일 START--
+    const linkDivObj = document.querySelector('div.link')
+    linkDivObj.addEventListener('click', (e)=>{
+        e.target.style.backgroundColor = 'blue'
+    })
+    
+    const aObj = document.querySelector('div.link>a')
+    aObj.addEventListener('click', (e)=>{
+        this.alert('링크 클릭')
+        e.preventDefault() //기본 이벤트처리를 막아라
+        e.stopPropagation() //이벤트 전파를 중지한다
+    })
+    //--a객체의 click이벤트 발생할 때 할 일 END--
+
 
 })
