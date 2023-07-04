@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <script>
+            function test(obj) {
+                // console.log(obj.innerHTML)
+                if(obj.innerHTML == '네이버'){
+                    location.href = 'http://www.naver.com'
+                }else if(obj.innerHTML == '다음') {
+                    location.href = 'http://www.daum.net'
+                }
+            }
+
+            let test2 = (url) => { //let test2 = function(url) {}
+                location.href = url;
+            }
+
+            window.addEventListener('load', ()=>{
+                const btNaverObj = document.querySelector('button.naver')
+                const btDaumObj = document.querySelector('button.daum')
+
+                //test()를 넣으면 그 즉시 호출 됨 : 클릭 시에만 호출되는게 목표
+                btNaverObj.addEventListener('click', (e)=>{
+                    // test(e.target);
+                    test2('http://www.naver.com')
+                }) 
+                btDaumObj.addEventListener('click', (e)=>{
+                    // test(e.target);
+                    test2('http://www.daum.net')
+                })
+
+            })
+        </script>
+
+    </head>
+
+    <body>
+        <button class="naver">네이버</button>
+        <button class="daum">다음</button>
+
+    </body>
+</html>
