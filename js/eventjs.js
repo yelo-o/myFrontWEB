@@ -119,23 +119,46 @@ window.addEventListener('load', function() { //window에서 load 이벤트가 �
                 carType2Obj.style.display = 'inline-block'
                 break;
             case 'truck':
-                // let type3 = ['마이티', '더 뉴 파비스', '뉴파워트럭'];
-                let type3 = [
-                    {name: '마이티', id : 'mighty'},
-                    {name:'더 뉴 파비스', id: 'pavise'},
-                    {name:'뉴파워트럭', id: 'powertruck'}
-                ]
-                carType2Obj.innerHTML = '<option>선택하세요</option>'
-                for (let i=0; i<type3.length;i++){
-                    carType2Obj.innerHTML += `<option value="${type3[i].id}">${type3[i].name}</option>`
+                let type3 = ['선택하세요', '마이티', '파비스', '엑시언트', '엑시언트수소트럭'];
+                // let type3 = [
+                //     {name: '마이티', id : 'mighty'},
+                //     {name:'더 뉴 파비스', id: 'pavise'},
+                //     {name:'뉴파워트럭', id: 'powertruck'}
+                // ]
+                // carType2Obj.innerHTML += '<option>' + type2[0] + '</option>'
+                // carType2Obj.innerHTML += '<option>' + type2[1] + '</option>'
+                // carType2Obj.innerHTML += '<option>' + type2[2] + '</option>'
+                // carType2Obj.innerHTML += '<option>' + type2[3] + '</option>'
+                
+                // carType2Obj.innerHTML = '<option>선택하세요</option>'
+                // for (let i=0; i<type3.length;i++){
+                //     carType2Obj.innerHTML += `<option value="${type3[i].id}">${type3[i].name}</option>`
+                // }
+
+                // let options = document.querySelectorAll('div.car>select.type2>option')
+                // options를 처음부터 다시 찾기보다는 이전에 찾아놓은 carType2Obj를 이용해서 찾는 방법 ↓
+                let options = carType2Obj.childNodes
+
+                // options.forEach((value)=>{
+                //     carType2Obj.removeChild(value)
+                //     console.log("지우기",value)
+                // })
+
+                for(let i=0; i<options.length; i++){
+                    carType2Obj.removeChild(options[i])
                 }
-                // carType2Obj.innerHTML += '<option>' + type3[0] + '</option>'
-                // carType2Obj.innerHTML += '<option>' + type3[1] + '</option>'
-                // carType2Obj.innerHTML += '<option>' + type3[2] + '</option>'
+
+                type3.forEach((value)=>{//type2의 값(value)을 0번인덱스부터 꺼내온다
+                    let optionObj = document.createElement('option') //<option> 생성
+                    // optionObj.innerHTML = value
+                    let txtObj = document.createTextNode(value) //텍스트 노드에 type3 배열의 값 넣기
+                    optionObj.appendChild(txtObj) //위에서 생성한 <option>의 하위에 select
+                    carType2Obj.appendChild(optionObj)
+                })
                 carType2Obj.style.display = 'inline-block'
-            break;
+                break;
             default: //중분류의 display => none
-            carType2Obj.style.display = 'none'
+                carType2Obj.style.display = 'none'
 
         }
         
