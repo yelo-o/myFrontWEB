@@ -3,17 +3,17 @@
     box-sizing: border-box;
 }
 
-form.signup>input[name=id], form.signup>input[name=id], form.signup>input[name=pwd], form.signup>input[name=pwd1],form.signup>input[name=name] {
+form.signup>input[name=userid], form.signup>input[name=pwd], form.signup>input[name=pwd1],form.signup>input[name=name] {
     width: 50%;
     display: block;
 }
 
-button#dupchk_btn{
+button.dupchk{
     width: 50%;
     background-color: aquamarine;
     display: block;
 }
 
-button#signup_btn {
+button.signup {
     display: none;
 }
