@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            // window.alert('aaaa')
+            // window.document.querySelector()
+            window.addEventListener('load', ()=>{
+                //--timer버튼 클릭되었을 때 할 일 START--
+                //DOM트리에서 class속성값이 timer인 button 객체찾기
+                const timerObj = document.querySelector('button.timer');
+                timerObj.addEventListener('click', ()=>{
+                    window.setTimeout(()=>{
+                        alert('2초가 지났습니다')
+                    }, 2 * 1000)   
+                })
+                //--timer버튼 클릭되었을 때 할 일 END--
+                
+                
+                //--interval버튼 클릭되었을 때 할 일 START--
+                let windowId;
+                const intervalObj = document.querySelector('button.interval')
+                intervalObj.addEventListener('click', ()=>{
+                    windowId = window.setInterval(()=>{
+                        let dt = new Date()
+                        let time = `${dt.getFullYear()}-${dt.getMonth()+1}-${dt.getDate()} ${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`
+                        console.log(time)
+                    }, 1 * 1000)
+
+                })
+
+                //--interval버튼 클릭되었을 때 할 일 END--
+                
+                //--clear버튼 클릭되었을 때 할 일 END--
+                const btClearObj = document.querySelector('button.clear')
+                btClearObj.addEventListener('click', ()=>{
+                    window.clearInterval(windowId)
+                })
+
+
+                //--clear버튼 클릭되었을 때 할 일 END--
+
+
+            })
+
+        </script>
+
+    </head>
+
+    <body>
+        <button class="timer">setTimeout</button>
+        <button class="interval">setInterval</button>
+        <button class="clear">clearInterval</button>
+
+
+    </body>
+</html>
