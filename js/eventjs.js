@@ -135,22 +135,27 @@ window.addEventListener('load', function() { //window에서 load 이벤트가 �
                 // }
 
                 // let options = document.querySelectorAll('div.car>select.type2>option')
+
                 // options를 처음부터 다시 찾기보다는 이전에 찾아놓은 carType2Obj를 이용해서 찾는 방법 ↓
                 let options = carType2Obj.childNodes;
 
+                //while문으로는 지워짐..
+                while(carType2Obj.firstChild){
+                    carType2Obj.removeChild(carType2Obj.firstChild)
+                }
 
-                //for문이랑 forEach문으로 왜 안지워짐?? => nodeType 때문인듯? 
-                options.forEach((option)=>{
-                    console.log(option, option.nodeType) // nodeType 1: Element, 2: Attribute, 3: Text 
-                    if(option.nodeType == 1){
-                        carType2Obj.removeChild(option)
-                    }
-                })
+                //for문이랑 forEach문으로 왜 안지워짐?? => nodeType 때문인듯?
+                // options.forEach((option)=>{
+                //     console.log(option, option.nodeType) // nodeType 1: Element, 2: Attribute, 3: Text 
+                //     if(option.nodeType == 1){
+                //         carType2Obj.removeChild(option)
+                //     }
+                // })
 
                 type2.forEach((value)=>{//type2의 값(value)을 0번인덱스부터 꺼내온다
                     let optionObj = document.createElement('option') //<option> 생성
                     // optionObj.innerHTML = value
-                    let txtObj = document.createTextNode(value) //텍스트 노드에 type3 배열의 값 넣기
+                    let txtObj = document.createTextNode(value) //텍스트 노드에 type2 배열의 값 넣기
                     optionObj.appendChild(txtObj) //위에서 생성한 <option>에 텍스트 노드의 값 넣기
                     carType2Obj.appendChild(optionObj)
                 })
