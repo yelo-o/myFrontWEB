@@ -86,40 +86,39 @@ window.addEventListener('load', function() { //window에서 load 이벤트가 �
 
     carTypeObj.addEventListener('change',(e) =>{
         console.log(e.target.value, 'changed')
+        let type2;
         switch(e.target.value) {
             case 'sedan':
-                // let type1 = ['쏘나타', '더 뉴 아반테', '디 올 뉴 그랜저', '디 올 뉴 그랜저Hybrid']
-                let type1 = [
+                type2 = [
                     {name: '쏘나타', id : 'sonata'},
                     {name:'더 뉴 아반테', id: 'avante'},
                     {name:'디 올 뉴 그랜저', id: 'grandure'},
                     {name:'디 올 뉴 그랜저Hybrid', id: 'hybrid'}
                 ]
                 carType2Obj.innerHTML = '<option>선택하세요</option>'
-                carType2Obj.innerHTML += '<option value="'+ type1[0].id +'">' + type1[0].name + '</option>'
-                carType2Obj.innerHTML += '<option value="'+ type1[1].id +'">' + type1[1].name + '</option>'
-                carType2Obj.innerHTML += `<option value="${type1[2].id}">${type1[2].name}</option>`
-                carType2Obj.innerHTML += `<option value="${type1[3].id}">${type1[3].name}</option>`
+                carType2Obj.innerHTML += '<option value="'+ type2[0].id +'">' + type2[0].name + '</option>'
+                carType2Obj.innerHTML += '<option value="'+ type2[1].id +'">' + type2[1].name + '</option>'
+                carType2Obj.innerHTML += `<option value="${type2[2].id}">${type2[2].name}</option>`
+                carType2Obj.innerHTML += `<option value="${type2[3].id}">${type2[3].name}</option>`
                 carType2Obj.style.display = 'inline-block'
                 break;
             case 'suv':
-                // let type2 = ['팰리세이드', '베뉴', '코나']
-                let type2 = [
+                type2 = [
                     {name: '팰리세이드', id : 'palisade'},
                     {name:'베뉴', id: 'venue'},
                     {name:'코나', id: 'kona'}
                 ]
                 carType2Obj.innerHTML = '<option>선택하세요</option>'
-                for (let i=0; i<type2.length;i++){
-                    carType2Obj.innerHTML += `<option value="${type2[i].id}">${type2[i].name}</option>`
-                }
-                // carType2Obj.innerHTML += '<option>' + type2[0] + '</option>'
-                // carType2Obj.innerHTML += '<option>' + type2[1] + '</option>'
-                // carType2Obj.innerHTML += '<option>' + type2[2] + '</option>'
+                // for (let i=0; i<type2.length;i++){
+                //     carType2Obj.innerHTML += `<option value="${type2[i].id}">${type2[i].name}</option>`
+                // }
+                carType2Obj.innerHTML += '<option>' + type2[0].name + '</option>'
+                carType2Obj.innerHTML += '<option>' + type2[1].name + '</option>'
+                carType2Obj.innerHTML += '<option>' + type2[2].name + '</option>'
                 carType2Obj.style.display = 'inline-block'
                 break;
             case 'truck':
-                let type3 = ['선택하세요', '마이티', '파비스', '엑시언트', '엑시언트수소트럭'];
+                type2 = ['선택하세요', '마이티', '파비스', '엑시언트', '엑시언트수소트럭'];
                 // let type3 = [
                 //     {name: '마이티', id : 'mighty'},
                 //     {name:'더 뉴 파비스', id: 'pavise'},
@@ -137,20 +136,18 @@ window.addEventListener('load', function() { //window에서 load 이벤트가 �
 
                 // let options = document.querySelectorAll('div.car>select.type2>option')
                 // options를 처음부터 다시 찾기보다는 이전에 찾아놓은 carType2Obj를 이용해서 찾는 방법 ↓
-                let options = carType2Obj.children
+                let options = carType2Obj.childNodes;
 
-                //while문으로는 지워짐..
-                while(carType2Obj.firstChild){
-                    carType2Obj.removeChild(carType2Obj.firstChild)
-                }
 
-                //for문이랑 forEach문으로 왜 안지워짐??
-                // options.forEach((value)=>{
-                //     carType2Obj.removeChild(value)
-                //     console.log("지우기",value)
-                // })
+                //for문이랑 forEach문으로 왜 안지워짐?? => nodeType 때문인듯? 
+                options.forEach((option)=>{
+                    console.log(option, option.nodeType) // nodeType 1: Element, 2: Attribute, 3: Text 
+                    if(option.nodeType == 1){
+                        carType2Obj.removeChild(option)
+                    }
+                })
 
-                type3.forEach((value)=>{//type2의 값(value)을 0번인덱스부터 꺼내온다
+                type2.forEach((value)=>{//type2의 값(value)을 0번인덱스부터 꺼내온다
                     let optionObj = document.createElement('option') //<option> 생성
                     // optionObj.innerHTML = value
                     let txtObj = document.createTextNode(value) //텍스트 노드에 type3 배열의 값 넣기
