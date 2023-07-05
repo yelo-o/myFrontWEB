@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            window.addEventListener('load', () =>{
+                const btObj = document.querySelector('button')
+                const pObj = document.querySelector('p')
+
+                //--버튼클릭되었을 때 할 일 START--
+                btObj.addEventListener('click', ()=>{
+                    //Create ax XMLHttpRequest object
+                    const xhttp = new XMLHttpRequest();
+                    
+                    //Define a callback function
+                    // xhttp.onload = function() { // onload 패턴 교체
+                    xhttp.addEventListener('load', (e)=>{
+                        //Here you can user the Data
+                        pObj.innerHTML =  e.target.responseText;
+                    })
+
+                    //send a request
+                    xhttp.open("post", "http://localhost:8888/back/signup")
+                    //요청전달데이터를 form전송형태로 전달하려면 ContentType 설정이 필요(서블릿으로 서브밋이벤트를 요청하는것처럼 보이게 함)
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send("userid=abc&pwd=p1&name=1")
+                })
+                //--버튼클릭되었을 때 할 일 START--
+            })
+
+        </script>
+    </head>
+
+    <body>
+        <div>DIV영역</div>
+        <p>p단락</p>
+        <button>클릭</button>
+    </body>
+</html>

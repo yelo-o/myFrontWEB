@@ -1,0 +1,1 @@
+비동기일처리용 JS객체는 XmlHttpRequest입니다

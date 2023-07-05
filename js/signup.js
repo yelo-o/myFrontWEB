@@ -30,8 +30,12 @@ window.addEventListener('load', ()=>{
         if(pwdObj.value != pwd1Obj.value) {
             alert("비밀번호가 일치하지 않습니다")
             pwdObj.focus()
+            e.preventDefault();
+            return false
         } 
-        e.preventDefault(); //back요청 막기
+        e.target.action = 'http://localhost:8888/back/signup' //'http://www.naver.com'
+        e.target.method = 'post'
+        // e.preventDefault(); //back요청 막기
             
     })
     //--폼 submit이벤트 발생시 할 일 END--
