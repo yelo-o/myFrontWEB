@@ -23,7 +23,7 @@ window.addEventListener('load', () =>{
         xhttp.open("get", "./login.html")
         //요청전달데이터를 form전송형태로 전달하려면 ContentType 설정이 필요(서블릿으로 서브밋이벤트를 요청하는것처럼 보이게 함)
         // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("userid=abc&pwd=p1&name=1")
+        xhttp.send("id=abc&pwd=p1&name=1")
     })
     //--버튼클릭되었을 때 할 일 END--
 
