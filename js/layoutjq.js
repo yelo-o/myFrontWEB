@@ -1,22 +1,7 @@
 const frontURL = 'http://localhost:5500/html'
 const backURL = 'http://localhost:8888/back'
 
-//--나의 복잡한 코드--
-// function showAjax(targetUrl, targetObj) {
-//     $.ajax({
-//         url: targetUrl,
-//         method:'get',
-//         success:(responseData)=>{
-//             targetObj.html(responseData)
-//         },
-//         error:(jqXhr, status)=>{
-//             alert(`status:${status}, jqXhr.status:${jqXhr.statusCode}`)
-//         }
-//     })
-//     targetObj.load(targetUrl)
-// }
-
-//--강사님의 단순화된 코드--
+//ajax 요청 함수 생성
 function showAjax(targetUrl, targetObj) {
     targetObj.load(targetUrl)
 }
@@ -42,7 +27,7 @@ $(() => {
 
             case `./productlist.html`: //상품 목록
                 console.log('상품 목록 클릭')
-                location.href = `${frontURL}/productlist.html`
+                location.href = `${frontURL}/productlist.html` //상품리스트 페이지 이동
                 break
         }
         return false;
