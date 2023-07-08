@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .upper{
+            background:gold;
+            width:80px;
+            text-align:center;
+            } 
+            .lower{
+            background:pink;
+            width:50px;
+            }
+        </style>
+
+        <script>
+            function clicked(e){
+              alert(e.target.id+" clicked");
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <div class="upper" onClick="clicked(event)" id="div">
+            div
+          <span class="lower" id="span">           
+            span
+          </span>
+        </div>
+
+    </body>
+
+</html>
+  
+  
