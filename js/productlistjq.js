@@ -11,7 +11,7 @@ $(() => {
         url: 'http://localhost:8888/back/productlist',
         method: 'get',
         success: (responseObj) => { //자바스크립트 객체
-            // console.log(responseObj)
+            console.log(responseObj)
         
             const productOriginObj = $('div.productlist>div.product').first() //원본
             responseObj.forEach((r) => {
@@ -25,13 +25,7 @@ $(() => {
                 productOriginObj.parent().append(productCloneObj) //복제본 추가
         
             })
-        
             productOriginObj.hide()
-
-            //--상품클릭할 때 할일 START-- $.deferred
-            const divProductObj = $('div.product')
-            console.log(divProductObj.length)
-            //--상품클릭할 때 할일 END--
         }
     })
 
@@ -67,6 +61,26 @@ $(() => {
     // productOriginObj.parent().append(productCloneObj) //복제본 추가
 
     //--상품목록 얻기 END--
+
+    //--상품클릭할 때 할일 START-- $.deferred
+    //  const divProductObj = $('div.product')
+    //  console.log(divProductObj.length)
+
+    //DOM 트리에는 아직 없지만 향후 추가될 객체들을 등록하려면
+    //on('이벤트종류', '객체', '할 일') 함수를 써야 함
+    $('div.productlist').on('click', 'div.product', (e)=>{ 
+        alert($(e.currentTarget).attr('class') + ' clicked') //현재 e.target이 없기 때문에 e.currentTarget을 써줘야 함
+
+        const prodNo = $(e.currentTarget).attr('class').split(" ")[1]
+        alert(prodNo + ' clicked')
+
+        //--WB에는 Storage가 제공됨 : localStorage(영구 저장소),
+        //                           sessionStorage(탭단위 저장소)
+        //--setItem(), getItem(), removeItem()
+        sessionStorage.setItem("prodNo", prodNo)
+        $('section').load(`./product.html`) //get방식 요청은 load()를 쓸 것!
+    })
+     //--상품클릭할 때 할일 END--
 
     
 })
